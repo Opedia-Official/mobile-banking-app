@@ -1,7 +1,6 @@
 import { createDrawerNavigator } from '@react-navigation/drawer';
 import BalanceScreen from '../../screen/BalanceScreen';
 import BillScreen from '../../screen/BillScreen';
-import { useWindowDimensions } from 'react-native';
 import EwalletScreen from '../../screen/EwalletScreen';
 import Home from '../../screen/Home';
 import HistoryTransScreen from '../../screen/TabScreen/HistoryTransScreen';
@@ -9,20 +8,16 @@ import CustomDrawer from './CustomDrawer';
 const Drawer = createDrawerNavigator();
 
 function MyDrawer() {
-    const dimensions = useWindowDimensions();
     return (
             <Drawer.Navigator 
                 screenOptions={{headerShown:false,
                 drawerStyle: {
                 backgroundColor: 'white',
-                width: 250,
+                width: 230,
                 height: 720,
-                marginTop:27,
-                marginStart: 20,
-                marginEnd:20,
+                marginVertical: 25,
                 borderRadius:8
                 },
-                drawerType: dimensions.width >= 768 ? 'permanent' : 'front'
             }}
                 initialRouteName="Home"
                 drawerContent={(props) => <CustomDrawer {...props} />}
