@@ -1,4 +1,4 @@
-import { View, SafeAreaView, TouchableOpacity, StyleSheet } from 'react-native';
+import { View, SafeAreaView,Dimensions, TouchableOpacity, StyleSheet, ScrollView, FlatList } from 'react-native';
 import React from 'react';
 import { Entypo } from '@expo/vector-icons';
 import { Ionicons } from '@expo/vector-icons';
@@ -11,7 +11,7 @@ import Transaction from '../components/Transaction';
 function Home(props) {
   const { navigation } = props;
   return (
-    <SafeAreaView style={{marginHorizontal:10}}>
+    <View style={{flex:1,width:Dimensions.get('window').width}}>
       <View style={styles.header}>
         <TouchableOpacity onPress={()=>navigation.openDrawer()}>
           <Entypo style={styles.menuIcon} size={28} color="#979797" name="list" />
@@ -20,19 +20,16 @@ function Home(props) {
         <TouchableOpacity onPress={()=>navigation.navigate("HistoryTransScreen")}>
           <Ionicons style={styles.menuIcon} name="notifications-outline" size={28} color="#979797" />
         </TouchableOpacity>
-
       </View>
-      <View style={{ position: "absolute", marginTop: 60 }}>
+      <ScrollView 
+      vertical={true}
+      style={{ flex:1 }}>
         <Balancecard />
         <QuickAccess />
-        <View>
-          <SendMoney />
-        </View>
-        <View>
-          <Transaction />
-        </View>
-      </View>
-    </SafeAreaView>
+        <SendMoney />
+        <Transaction />
+      </ScrollView>
+    </View>
   )
 }
 

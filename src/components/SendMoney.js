@@ -31,13 +31,13 @@ const SendMoney = () => {
           <View style={{
               flex: 1, 
               flexDirection: 'row',
-              marginVertical: 15,
+              marginTop: 18,
               padding:2,
               justifyContent:'space-between',
               alignItems:'center'
               }}>
               <Text style={styles.textHead}>Send Money</Text>
-              <TouchableOpacity><Text style={styles.buttonColor}>View All</Text></TouchableOpacity>
+              <TouchableOpacity style={{marginEnd:10}}><Text style={styles.buttonColor}>View All</Text></TouchableOpacity>
           </View>
           <View>
               <FlatList 
@@ -45,6 +45,7 @@ const SendMoney = () => {
                 renderItem={renderItem}
                 keyExtractor={item => item.id} 
                 horizontal={true}
+                showsHorizontalScrollIndicator={false}
               />
           </View>
     </View>
@@ -55,8 +56,9 @@ export default SendMoney;
 
 const styles = StyleSheet.create({
     textHead:{
-        fontSize: 24,
-        fontWeight:'bold'
+        fontSize: 20,
+        fontWeight:'bold',
+        marginStart:10
     },
     buttonColor:{
         color:"#665BEC",
@@ -69,14 +71,14 @@ const styles = StyleSheet.create({
         borderRadius:8
     },
     item: {
-        padding: 5,
-        marginVertical: 3,
+        padding: 2,
+        marginVertical: 2,
         marginHorizontal: 5,
     },
     title: {
         fontSize: 16,
         color: 'gray',
         textAlign: 'center',
-        marginTop:10
+        marginTop:8
     },
 })

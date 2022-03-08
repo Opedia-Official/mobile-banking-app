@@ -1,8 +1,14 @@
 import { createDrawerNavigator } from '@react-navigation/drawer';
+import ATMCenterScreen from '../../screen/ATMCenterScreen';
 import BalanceScreen from '../../screen/BalanceScreen';
 import BillScreen from '../../screen/BillScreen';
 import EwalletScreen from '../../screen/EwalletScreen';
 import Home from '../../screen/Home';
+import MyCardScreen from '../../screen/MyCardScreen';
+import RequestMoneyScreen from '../../screen/RequestMoneyScreen';
+import SavingsScreen from '../../screen/SavingsScreen';
+import SendMoneyScreen from '../../screen/SendMoneyScreen';
+import StatisticScreen from '../../screen/StatisticScreen';
 import HistoryTransScreen from '../../screen/TabScreen/HistoryTransScreen';
 import CustomDrawer from './CustomDrawer';
 const Drawer = createDrawerNavigator();
@@ -10,10 +16,11 @@ const Drawer = createDrawerNavigator();
 function MyDrawer() {
     return (
             <Drawer.Navigator 
-                screenOptions={{headerShown:false,
+                screenOptions={{
+                headerShown:false,
                 drawerStyle: {
                 backgroundColor: 'white',
-                width: 230,
+                width: 270,
                 height: 720,
                 marginVertical: 25,
                 borderRadius:8
@@ -27,6 +34,12 @@ function MyDrawer() {
                 <Drawer.Screen name="Balance" component={BalanceScreen} />
                 <Drawer.Screen name="EwalletScreen" component={EwalletScreen} />
                 <Drawer.Screen name="BillScreen" component={BillScreen} />
+                <Drawer.Screen name="SavingsScreen" component={SavingsScreen} />
+                <Drawer.Screen name="StatisticScreen" component={StatisticScreen} />
+                <Drawer.Screen name="MyCardScreen" component={MyCardScreen} />
+                <Drawer.Screen name="SendMoneyScreen" component={SendMoneyScreen} />
+                <Drawer.Screen name="RequestMoneyScreen" component={RequestMoneyScreen} />
+                <Drawer.Screen name="ATMCenterScreen" component={ATMCenterScreen} />
                 <Drawer.Screen name="HistoryTransScreen" component={HistoryTransScreen} />
             </Drawer.Navigator>
     );

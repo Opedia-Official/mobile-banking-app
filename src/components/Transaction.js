@@ -1,4 +1,4 @@
-import { StyleSheet, Text, View, TouchableOpacity, FlatList, Image } from 'react-native'
+import { StyleSheet, Text, View,Dimensions, TouchableOpacity, FlatList, Image } from 'react-native'
 import React from 'react'
 
 
@@ -39,23 +39,25 @@ export default function Transaction() {
         <Item title={item.title} imgUri={item.imgUri} date={item.date} ammount={item.ammount} history={item.history} />
     );
   return (
-    <View>
+    <View style={{width:Dimensions.get('screen').width}}>
           <View style={{
               flex: 1,
               flexDirection: 'row',
-              marginVertical: 15,
-              padding: 2,
+              marginVertical: 4,
               justifyContent: 'space-between',
               alignItems: 'center'
           }}>
               <Text style={styles.textHead}>Transaction</Text>
-              <TouchableOpacity><Text style={styles.buttonColor}>View All</Text></TouchableOpacity>
+              <TouchableOpacity style={{marginEnd:10}}><Text style={styles.buttonColor}>View All</Text></TouchableOpacity>
           </View>
-          <View>
+          <View style={{flex: 1,height:Dimensions.get('window').height}}>
               <FlatList
                   data={avatorData}
                   renderItem={renderItem}
                   keyExtractor={item => item.id}
+                  pagingEnabled={true}
+                  scrollEnabled
+                  showsVerticalScrollIndicator={true}
               />
           </View>
     </View>
@@ -64,8 +66,9 @@ export default function Transaction() {
 
 const styles = StyleSheet.create({
     textHead: {
-        fontSize: 24,
-        fontWeight: 'bold'
+        fontSize: 20,
+        fontWeight: 'bold',
+        marginStart:10
     },
     buttonColor: {
         color: "#665BEC",
@@ -73,7 +76,8 @@ const styles = StyleSheet.create({
         fontWeight: 'bold'
     },
     item:{
-        width: '100%',
+        marginStart:10,
+        marginEnd:10,
         height: 60,
         flex:1,
         flexDirection:'row',

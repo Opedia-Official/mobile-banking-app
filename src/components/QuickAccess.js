@@ -10,8 +10,7 @@ export default function QuickAccess() {
       <View View style={{ 
         flex: 1,
         flexDirection:'row',
-        justifyContent:'space-between' , 
-        backgroundColor: 'white',
+        justifyContent:'space-between' ,
         margin:20,
         }}>
         <TouchableOpacity style={styles.iconBg}>
