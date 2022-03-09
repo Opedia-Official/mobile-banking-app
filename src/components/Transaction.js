@@ -34,12 +34,12 @@ const Item = ({ title, imgUri, date, ammount, history }) => (
 );
 
 
-export default function Transaction() {
+export default function Transaction({ navigation }) {
     const renderItem = ({ item }) => (
         <Item title={item.title} imgUri={item.imgUri} date={item.date} ammount={item.ammount} history={item.history} />
     );
   return (
-    <View style={{width:Dimensions.get('screen').width}}>
+    <View style={{flex:1,width:Dimensions.get('screen').width}}>
           <View style={{
               flex: 1,
               flexDirection: 'row',
@@ -48,9 +48,9 @@ export default function Transaction() {
               alignItems: 'center'
           }}>
               <Text style={styles.textHead}>Transaction</Text>
-              <TouchableOpacity style={{marginEnd:10}}><Text style={styles.buttonColor}>View All</Text></TouchableOpacity>
+              <TouchableOpacity onPress={()=>navigation.navigate("HistoryTransScreen")} style={{marginEnd:10}}><Text style={styles.buttonColor}>View All</Text></TouchableOpacity>
           </View>
-          <View style={{flex: 1,height:Dimensions.get('window').height}}>
+          <View>
               <FlatList
                   data={avatorData}
                   renderItem={renderItem}

@@ -9,28 +9,30 @@ import { Entypo } from '@expo/vector-icons';
 import { Ionicons } from '@expo/vector-icons';
 import { Octicons } from '@expo/vector-icons';
 import { MaterialIcons } from '@expo/vector-icons';
-import { Image, View, Text } from 'react-native';
+import { Image, View, Text, TouchableOpacity } from 'react-native';
 
 function CustomDrawer(props) {
     const { navigation } = props;
     return (
-        <DrawerContentScrollView {...props} >
-            {/* <DrawerItemList {...props} /> */}
-            <View style={{
-                flex:1, 
+        <>
+        <TouchableOpacity onPress={()=>navigation.navigate('Profile')} style={{ 
                 flexDirection:'row',
                 alignItems:'center',
                 marginStart:10,
-                marginBottom:5
+                marginVertical:16
                 }}>
                 <Image 
                 source={{uri:'https://cdn1.vectorstock.com/i/1000x1000/23/70/man-avatar-icon-flat-vector-19152370.jpg'}} 
-                style = {{ width: 70, height: 70, margin:5, borderRadius:8}}/>
+                style = {{ width: 60, height: 60, margin:5, borderRadius:8}}/>
                 <View style={{marginStart:20}}>
                     <Text style={{fontSize:20, fontWeight:'bold'}}>Cameron{"\n"}Williamson</Text>
                     <Text style={{color:'#C5C5C7',fontSize:12}}>$ Williamson</Text>
                 </View>
-            </View>
+            </TouchableOpacity>
+        <DrawerContentScrollView {...props}
+        style={{marginTop:-16}}
+        >
+            {/* <DrawerItemList {...props} /> */}
             <DrawerItem
                 label="Home"
                 icon={()=><AntDesign name="home" size={28} color="#665BEC" />}
@@ -88,6 +90,7 @@ function CustomDrawer(props) {
             />
             
         </DrawerContentScrollView>
+        </>
     );
 }
 

@@ -11,24 +11,26 @@ import SendMoneyScreen from '../../screen/SendMoneyScreen';
 import StatisticScreen from '../../screen/StatisticScreen';
 import HistoryTransScreen from '../../screen/TabScreen/HistoryTransScreen';
 import CustomDrawer from './CustomDrawer';
+import { Dimensions } from 'react-native';
+import NotificationScreen from '../../screen/NotificationScreen';
+import ProfileScreen from '../../screen/ProfileScreen';
 const Drawer = createDrawerNavigator();
 
+const {width , height} = Dimensions.get("window")
 function MyDrawer() {
     return (
             <Drawer.Navigator 
                 screenOptions={{
                 headerShown:false,
                 drawerStyle: {
-                backgroundColor: 'white',
-                width: 270,
-                height: 720,
-                marginVertical: 25,
-                borderRadius:8
+                width: width-150,
+                height: height-100,
+                marginVertical:100,
+                borderRadius:8,
                 },
             }}
                 initialRouteName="Home"
                 drawerContent={(props) => <CustomDrawer {...props} />}
-
                 >
                 <Drawer.Screen name="Home" component={Home} />
                 <Drawer.Screen name="Balance" component={BalanceScreen} />
@@ -41,6 +43,8 @@ function MyDrawer() {
                 <Drawer.Screen name="RequestMoneyScreen" component={RequestMoneyScreen} />
                 <Drawer.Screen name="ATMCenterScreen" component={ATMCenterScreen} />
                 <Drawer.Screen name="HistoryTransScreen" component={HistoryTransScreen} />
+                <Drawer.Screen name="Notification" component={NotificationScreen} />
+                <Drawer.Screen name="Profile" component={ProfileScreen} />
             </Drawer.Navigator>
     );
 }

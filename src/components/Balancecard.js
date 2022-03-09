@@ -6,8 +6,8 @@ export default function Balancecard() {
   return (
     <View>
             <View style={{ flex: 1}}>
-            <View style={{ height:220 , marginTop: 25 }}>
-              <ScrollView 
+            <View style={{ height:220 , marginTop: 5 }}>
+              <ScrollView
                 horizontal={true}
                 showsHorizontalScrollIndicator={false}
                 pagingEnabled={false}
